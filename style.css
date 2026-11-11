@@ -1,0 +1,310 @@
+/* ==========================================================
+   style.css - Website Profil Diri
+   Ubah warna & font cukup di bagian :root di bawah ini.
+   ========================================================== */
+
+:root {
+  --bg: #e6e6e6;
+  --surface: #ffffff;
+  --ink: #1b2a2f;
+  --ink-soft: #4a5b60;
+  --line: #d5ddd6;
+  --accent: #1f6f78;
+  --accent-dark: #1f9fb0;
+  --highlight: #f0b429;
+
+  --font-head: "Sora", "Segoe UI", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+
+  --radius: 14px;
+  --width: 960px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+:focus-visible {
+  outline: 3px solid var(--highlight);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-head);
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: 68ch;
+}
+
+/* ---------- Navigasi ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--ink);
+}
+
+.navbar ul {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.navbar a {
+  display: block;
+  padding: 0.9rem 0;
+  color: #e8efe9;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+  border-bottom-color: var(--highlight);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 4rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero .foto {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid var(--surface);
+  box-shadow: 10px 10px 0 var(--highlight);
+  background: var(--line);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: -0.02em;
+}
+
+.hero .status {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.tombol {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+
+.tombol:hover {
+  background: var(--accent-dark);
+  color: #ffffff;
+}
+
+/* ---------- Section ---------- */
+main {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.section {
+  padding: 2.5rem 0;
+  border-top: 2px solid var(--line);
+}
+
+.section h2 {
+  font-size: 1.6rem;
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-top: 0.5rem;
+  background: var(--highlight);
+  border-radius: 2px;
+}
+
+/* ---------- Kartu (pendidikan, prestasi, dll) ---------- */
+.kartu {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.kartu h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.15rem;
+}
+
+.kartu .keterangan {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ---------- Keahlian & hobi ---------- */
+.daftar-chip {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.daftar-chip li {
+  padding: 0.35rem 0.95rem;
+  background: var(--surface);
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+/* ---------- Pengalaman (timeline) ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 3px solid var(--line);
+}
+
+.timeline li {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 8px);
+  top: 0.55rem;
+  width: 13px;
+  height: 13px;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  border-radius: 50%;
+}
+
+.timeline .tahun {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.timeline h3 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* ---------- Kontak ---------- */
+.kontak {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kontak li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.kontak strong {
+  display: inline-block;
+  min-width: 110px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 1.5rem 1.25rem;
+  background: var(--ink);
+  color: #c3cfc6;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 700px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+    padding-top: 2.5rem;
+  }
+
+  .hero .foto {
+    width: 170px;
+    height: 170px;
+    box-shadow: 7px 7px 0 var(--highlight);
+  }
+
+  .kontak strong {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .tombol {
+    transition: none;
+  }
+}
